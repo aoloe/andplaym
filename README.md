@@ -30,12 +30,13 @@ Create web services that can:
 - Remove an item from the queue.
 - Clear the queue.
 - Show the queue.
-- Give the status of the current playing track.
 - Pull items from the queue of files and play them.
 - Play a file.
+- Give the status of the current playing track.
 - Pause a file.
 - Skip to the next file.
 - Fastforward and backward the playing.
+- Volume control.
 
 
 ## Mockups
