@@ -13,8 +13,11 @@ Create an Android App that can:
 - Add individual files or directories to a queue of files to be played.
 - Show the current queue of files on the server.
 - Remove individual files from the queue.
-- Get notified when a files has finished playing.
+- Shuffle the queue (eventually).
+- Reorder the queue (eventually).
+- Add item to the top of the queue.
 - Show the current state of the playing file.
+- Get notified when a files has finished playing.
 - Pause the playing.
 - Fastforward and backward the playing.
 - Restart the playing of the current track.
@@ -25,7 +28,7 @@ Create an Android App that can:
 
 Create web services that can:
 
-- Show the list of files and directories at a specific path (and it's subpaths).
+- Show the list of files and directories at a specific path (and its subpaths).
 - Add items to a queue of files to be played.
 - Remove an item from the queue.
 - Clear the queue.
@@ -62,6 +65,16 @@ Create web services that can:
     |---------------------------------------------------|
     |  ◀ ‖ ▷ ▶  On the Edge                 1:23 ▁▂▃▄▅▆ |
     +---------------------------------------------------+
+
+- clicking on a directory, changes the view to its content.
+- context menu on the directory gives the following options:
+  - add content to the queue,
+  - add content to the beginning of the queue,
+  - browse.
+- clicking on a file adds it to the queue
+- content menu on the file gives the following options:
+  - add to the queue,
+  - add to the beginning of the queue.
 
     +---------------------------------------------------+
     | Queue                                             |
@@ -111,5 +124,22 @@ http://developer.android.com/training/basics/firstapp/index.html
 
 ## Ideas
 
+- onStart should check that wlan is enabled
+
+      LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+      boolean gpsEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+      if (!gpsEnabled) {
+          // Create a dialog here that requests the user to enable GPS, and use an intent
+          // with the android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS action
+          // to take the user to the Settings screen to enable GPS when they click "OK"
+      }
+
+## Ideas
+
 - communication over json
 - server side in python. several small webservices?
+
+## Deugging
+
+- As of February 24 2013, on debian 64 bit you need lib32z1 installed (the 32 bit installer). Eclipse will complain if you need it!
+- If the ABT Manager does not work, run it from Eclipse
